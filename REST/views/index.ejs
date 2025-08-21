@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+    <h1>Gunjan Page Post</h1>
+   <%  for(let po of posts){ %>
+    <h3> Username: @<%= po.username %>  </h3>
+    <p> Content: @<%= po.post %>  </p>
+    <h3><a href="/posts/<%= po.id %>" > see your post in detail</a> </h3>
+<a href="/posts/<%= po.id %>/edit">✏️ Edit</a>
+<form method="POST" action="/posts/<%= po.id %>?_method=DELETE" style="display:inline;">
+  <button type="submit">🗑️ Delete</button>
+</form>
+
+
+<%  } %>
+<br>
+<h4><a href="http://localhost:8080/posts/new/">Create New Post</a></h4>
+</body>
+</html>
+
